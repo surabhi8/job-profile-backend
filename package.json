@@ -1,0 +1,30 @@
+{
+  "name": "jobprofilebackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon  ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surabhi8/job-profile-app-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surabhi8/job-profile-app-backend/issues"
+  },
+  "homepage": "https://github.com/surabhi8/job-profile-app-backend#readme",
+  "dependencies": {
+    "hapi": "^16.7.0",
+    "nodemon": "^1.19.1",
+    "sequelize": "^5.13.1",
+    "sequelize-cli": "^5.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "jest": "^24.8.0"
+  }
+}
