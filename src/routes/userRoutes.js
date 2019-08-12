@@ -33,5 +33,36 @@ module.exports = [
       reply(err);
     });  
   }
+},
+{
+  path: "/profile",
+  method: "POST",
+  async handler(request,reply) {
+     const {userName} = request.payload;
+     Model.User.findOne({
+      attributes: ['userName','image','jobRole','companyId'],
+      where: {
+        userName
+      },
+      include: [
+        {
+          model: Model.Company,
+          as:'Company',
+          attributes: ['name'],
+          required: true
+        },
+      ],
+    }).then((user) => {
+      if(!user) {
+            reply({message:"Profile doesn't exist"}).code(401);
+      } else {
+        reply({
+          result: user.toJSON(),
+        }).code(200);
+      } 
+     }).catch((err) => {
+    reply(err);
+  });
+}
 }
 ]
