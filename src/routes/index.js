@@ -1,3 +1,3 @@
 const userRoutes =  require('./userRoutes.js');
-
-module.exports = {userRoutes};
+const companyRoutes =  require('./companyRoutes.js');
+module.exports = [].concat(userRoutes,companyRoutes);

@@ -8,7 +8,7 @@ server.connection({
   port: 9000,
 });
 
-server.route(routes.userRoutes);
+server.route(routes);
 
 if (!module.parent) {
   server.start((err) => {
