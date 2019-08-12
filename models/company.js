@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     logo: DataTypes.BLOB,
     address: DataTypes.STRING,
-    uniqueUsers: DataTypes.ARRAY,
+    uniqueUsers: DataTypes.ARRAY(DataTypes.STRING),
     totalViews: DataTypes.INTEGER
   }, {});
   Company.associate = function(models) {

@@ -1,3 +1,3 @@
-const api =  require('./api.js');
+const userRoutes =  require('./userRoutes.js');
 
-module.exports = {api};
+module.exports = {userRoutes};
