@@ -1,6 +1,7 @@
 //  import bcrypt from 'bcrypt';
 const  Model = require('../../models');
 const bcrypt = require('bcrypt');
+const userSchema = require('../schemas/user')
 module.exports = [
   {
     path: "/login",
@@ -32,7 +33,13 @@ module.exports = [
        }).catch((err) => {
       reply(err);
     });  
-  }
+  },
+  config: {
+    tags: ['api', 'user'],
+    validate: {
+      payload: userSchema.loginRequestSchema,
+    },
+  },
 },
 {
   path: "/profile",
@@ -40,7 +47,7 @@ module.exports = [
   async handler(request,reply) {
      const {userName} = request.payload;
      Model.User.findOne({
-      attributes: ['userName','image','jobRole','companyId'],
+      attributes: ['name','image','jobRole','companyId'],
       where: {
         userName
       },
@@ -63,6 +70,16 @@ module.exports = [
      }).catch((err) => {
     reply(err);
   });
+},
+config: {
+  tags: ['api', 'profile'],
+  validate: {
+    payload: userSchema.profileRequestSchema,
+  },
+  // response: {
+  //   payload: userSchema.profileResponseSchema
+  // }
+},
 }
-}
+
 ]
