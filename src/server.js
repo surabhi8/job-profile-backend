@@ -4,8 +4,8 @@ const server = new Hapi.Server();
 const routes = require('./routes/index');
 
 server.connection({
-  host: 'localhost',
   port: process.env.PORT || 4000,
+  host: process.env.NODE_HOST || '0.0.0.0',
 });
 
 server.route(routes);
