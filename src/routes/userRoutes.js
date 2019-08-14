@@ -80,6 +80,12 @@ config: {
   //   payload: userSchema.profileResponseSchema
   // }
 },
+},{
+  path: "/ping",
+  method: "GET",
+  async handler(request,reply) {
+    reply({"id": "pong"})
+  }
 }
 
 ]
