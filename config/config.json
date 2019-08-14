@@ -3,7 +3,7 @@
     "username": "surabhigupta",
     "password": null,
     "database": "job_profile_development",
-    "host": "127.0.0.1",
+    "host": "postgres://wawpzyzsfprndi:288f3f190334c3192a7c9b7c0f27f1ba374c619f82318c398d49ebaaaf3aea84@ec2-23-23-92-204.compute-1.amazonaws.com:5432/d6t980ubh42hau",
     "dialect": "postgres",
     "operatorsAliases": false
   },
