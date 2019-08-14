@@ -5,7 +5,7 @@ const routes = require('./routes/index');
 
 server.connection({
   host: 'localhost',
-  port: 4000,
+  port: process.env.PORT || 4000,
 });
 
 server.route(routes);
