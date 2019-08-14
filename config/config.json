@@ -16,9 +16,9 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "qpepmnvkxitsos",
-    "password": "330354d0bffbdc3058cb384a4a247fc82de5d86e06d9842f2675772f289d470b",
-    "database": "df5frvrihq2jtt",
+    "username": "wawpzyzsfprndi",
+    "password": "288f3f190334c3192a7c9b7c0f27f1ba374c619f82318c398d49ebaaaf3aea84",
+    "database": "d6t980ubh42hau",
     "port":"5432",
     "host": "ec2-23-23-92-204.compute-1.amazonaws.com",
     "dialect": "postgres",
