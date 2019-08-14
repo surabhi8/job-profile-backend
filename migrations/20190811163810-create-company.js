@@ -12,16 +12,18 @@ module.exports = {
         type: Sequelize.STRING
       },
       logo: {
-        type: Sequelize.BLOB
+        type: Sequelize.STRING
       },
       address: {
         type: Sequelize.STRING
       },
       uniqueUsers: {
-        type: Sequelize.ARRAY(Sequelize.STRING)
+        type: Sequelize.ARRAY(Sequelize.STRING),
+        defaultValue: []
       },
       totalViews: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       createdAt: {
         allowNull: false,

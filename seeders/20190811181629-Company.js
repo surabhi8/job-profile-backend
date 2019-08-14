@@ -4,15 +4,15 @@ module.exports = {
   up: (queryInterface) => {
     return queryInterface.bulkInsert('Companies', [{
      name: 'ABC',
-     logo:'',
-     address: 'abc street',
+     logo:'logo.svg',
+     address: 'Abc Street',
      createdAt: new Date(),
      updatedAt: new Date()
     },
     {
     name: 'XYZ',
-    logo:'',
-    address: 'xyz street',
+    logo:'logo.svg',
+    address: 'Xyz Street',
     createdAt: new Date(),
     updatedAt: new Date()
     }

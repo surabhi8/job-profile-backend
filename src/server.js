@@ -1,11 +1,11 @@
 const Hapi = require('hapi');
 
 const server = new Hapi.Server();
-const routes = require('./routes/index.js');
+const routes = require('./routes/index');
 
 server.connection({
   host: 'localhost',
-  port: 9000,
+  port: 4000,
 });
 
 server.route(routes);

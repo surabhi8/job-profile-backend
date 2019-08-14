@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       image: {
-        type: Sequelize.BLOB
+        type: Sequelize.STRING
       },
       jobRole: {
         type: Sequelize.STRING

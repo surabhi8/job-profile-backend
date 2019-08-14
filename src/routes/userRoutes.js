@@ -26,7 +26,7 @@ module.exports = [
             } else {
               reply({
                 message: 'Please enter correct password',
-              }).code(401);
+              }).code(204);
              }
           });
         }
