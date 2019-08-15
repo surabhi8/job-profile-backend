@@ -63,6 +63,7 @@ module.exports = [
       if(!user) {
             reply({message:"Profile doesn't exist"}).code(401);
       } else {
+        Model.Company.update({})
         reply({
           result: user.toJSON(),
         }).code(200);
