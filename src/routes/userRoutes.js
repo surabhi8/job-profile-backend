@@ -7,15 +7,16 @@ module.exports = [
     path: "/login",
     method: "POST",
     async handler(request,reply) {
-       const {userName} = request.payload;
-       const {password} = request.payload;
-       Model.User.findOne({
+       try{
+      const {userName} = request.payload;
+      const {password} = request.payload;
+      const user = await Model.User.findOne({
         attributes: ['userName', 'password'],
         where: {
           userName
         },
-      }).then((user) => {
-        if(!user){
+      });
+      if(!user){
           reply({
             message: 'Please enter correct username',
           }).code(401);
@@ -30,9 +31,9 @@ module.exports = [
              }
           });
         }
-       }).catch((err) => {
+      } catch(err) {
       reply(err);
-    });  
+    };  
   },
   config: {
     tags: ['api', 'user'],
@@ -45,8 +46,9 @@ module.exports = [
   path: "/profile",
   method: "POST",
   async handler(request,reply) {
+     try{
      const {userName} = request.payload;
-     Model.User.findOne({
+     const user = await Model.User.findOne({
       attributes: ['name','image','jobRole','companyId'],
       where: {
         userName
@@ -59,19 +61,18 @@ module.exports = [
           required: true
         },
       ],
-    }).then((user) => {
-      if(!user) {
+    });
+    if(!user) {
             reply({message:"Profile doesn't exist"}).code(401);
-      } else {
-        Model.Company.update({})
+    } else {
         reply({
           result: user.toJSON(),
         }).code(200);
       } 
-     }).catch((err) => {
+    }catch(err ) {
     reply(err);
-  });
-},
+    }
+  },
 config: {
   tags: ['api', 'profile'],
   validate: {
@@ -81,12 +82,5 @@ config: {
   //   payload: userSchema.profileResponseSchema
   // }
 },
-},{
-  path: "/ping",
-  method: "GET",
-  async handler(request,reply) {
-    reply({"id": "pong"})
-  }
 }
-
 ]

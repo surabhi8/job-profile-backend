@@ -5,13 +5,15 @@ module.exports = [{
   path: '/company-profile',
   method: 'GET',
   async handler(request,reply) {
+     try
+     {
      const {companyId} = request.query;
-     Model.Company.findOne({
+     const company = await Model.Company.findOne({
       attributes: ['name','logo','address','uniqueUsers','totalViews'],
       where: {
         id:companyId
       }
-    }).then((company) => {
+    })
       if(!company) {
             reply({message:"Company doesn't exist"}).code(401);
       } else {
@@ -19,9 +21,10 @@ module.exports = [{
           result: company.toJSON(),
         }).code(200);
       } 
-     }).catch((err) => {
+    }
+     catch(err) {
     reply(err);
-  });
+  };
 }
 }
 ]
