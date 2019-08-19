@@ -46,7 +46,7 @@ module.exports = [
   path: "/profile",
   method: "POST",
   async handler(request,reply) {
-     try{
+     try {
      const {userName} = request.payload;
      const user = await Model.User.findOne({
       attributes: ['name','image','jobRole','companyId'],
@@ -63,14 +63,24 @@ module.exports = [
       ],
     });
     if(!user) {
-            reply({message:"Profile doesn't exist"}).code(401);
+    reply({message:"Profile doesn't exist"}).code(401);
     } else {
+      try{
+        const company = await Model.Company.findOne(
+        { where: { id:user.dataValues.companyId } } );
+        await company.increment('totalViews');
         reply({
           result: user.toJSON(),
         }).code(200);
-      } 
-    }catch(err ) {
-    reply(err);
+       }
+        catch(error) {
+        console.log(error);
+        reply(error);
+      }  
+    }
+  }
+     catch(error) {
+    reply(error);
     }
   },
 config: {
@@ -78,9 +88,6 @@ config: {
   validate: {
     payload: userSchema.profileRequestSchema,
   },
-  // response: {
-  //   payload: userSchema.profileResponseSchema
-  // }
 },
 }
 ]
