@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/surabhi8/job-profile-app-backend#readme",
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "hapi": "^16.7.0",
     "joi": "^14.3.1",
     "nodemon": "^1.19.1",
